@@ -1,0 +1,92 @@
+$Module:
+  body:
+  - $ClassDef:
+      bases: []
+      body:
+      - $FunctionDef:
+          args:
+            $arguments:
+              args:
+              - $arg:
+                  arg: self
+              - $arg:
+                  arg: a
+              - $arg:
+                  arg: b
+              - $arg:
+                  arg: c
+              defaults: []
+              kw_defaults: []
+              kwonlyargs: []
+          body:
+          - $Return:
+              value:
+                $BinOp:
+                  left:
+                    $Name:
+                      ctx: &id001
+                        $Load: {}
+                      id: a
+                  op:
+                    $Add: {}
+                  right:
+                    $BinOp:
+                      left:
+                        $Name:
+                          ctx: *id001
+                          id: b
+                      op:
+                        $Mult: {}
+                      right:
+                        $Name:
+                          ctx: *id001
+                          id: c
+          decorator_list: []
+          name: fn
+      decorator_list: []
+      keywords: []
+      name: Calc
+  - $Assign:
+      targets:
+      - $Name:
+          ctx:
+            $Store: {}
+          id: result
+      value:
+        $Call:
+          args:
+          - $Num:
+              n: 1
+          - $Num:
+              n: 3
+          func:
+            $Attribute:
+              attr: fn
+              ctx: *id001
+              value:
+                $Call:
+                  args: []
+                  func:
+                    $Name:
+                      ctx: *id001
+                      id: Calc
+                  keywords: []
+          keywords:
+          - $keyword:
+              arg: c
+              value:
+                $Num:
+                  n: 5
+  - $Expr:
+      value:
+        $Call:
+          args:
+          - $Name:
+              ctx: *id001
+              id: result
+          func:
+            $Name:
+              ctx: *id001
+              id: print
+          keywords: []
+
